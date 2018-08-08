@@ -25,7 +25,7 @@ module.exports = {
   extends: ['eslint-config-airbnb', 'prettier', 'prettier/react'],
   plugins: ['prettier'],
   rules: {
-    // 'prettier/prettier': ERROR,
+    'prettier/prettier': ERROR,
 
     // http://eslint.org/docs/rules/#best-practices
     'consistent-return': [OFF],
