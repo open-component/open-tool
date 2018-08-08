@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-oc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OC's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/open-component/open-tool",
   "dependencies": {
-    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.5.0",
     "prettier": "^1.11.1"

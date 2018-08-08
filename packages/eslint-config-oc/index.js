@@ -17,11 +17,12 @@ module.exports = {
     node: true,
     commonjs: true,
     es6: true,
+    jest: true,
   },
   globals: {
     AlipayJSBridge: false,
   },
-  extends: ['eslint-config-airbnb', 'plugin:prettier/recommended'],
+  extends: ['eslint-config-airbnb', 'prettier', 'prettier/react'],
   plugins: ['prettier'],
   rules: {
     // 'prettier/prettier': ERROR,
