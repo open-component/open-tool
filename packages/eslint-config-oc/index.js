@@ -22,7 +22,12 @@ module.exports = {
   globals: {
     AlipayJSBridge: false,
   },
-  extends: ['eslint-config-airbnb', 'prettier', 'prettier/react'],
+  extends: [
+    'eslint-config-airbnb',
+    'prettier',
+    'prettier/react',
+    require.resolve('./rules/react'),
+  ],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ERROR,
