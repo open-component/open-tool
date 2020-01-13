@@ -3,9 +3,9 @@ const WARN = 1;
 const ERROR = 2;
 
 module.exports = {
-  parser: 'babel-eslint',
+  parser: require.resolve('babel-eslint'),
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -15,8 +15,6 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    commonjs: true,
-    es6: true,
     jest: true,
   },
   globals: {
@@ -28,7 +26,7 @@ module.exports = {
     'prettier/react',
     require.resolve('./rules/react'),
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier', 'eslint-comments', 'jest', 'react-hooks'],
   rules: {
     'prettier/prettier': ERROR,
 
@@ -59,7 +57,7 @@ module.exports = {
         functions: 'ignore',
       },
     ],
-    'max-len': [ERROR, { code: 80, ignoreUrls: true }],
+    'max-len': [ERROR, { code: 80, ignoreUrls: true, ignoreComments: true }],
 
     // Possible Errors
     'no-empty': ['error', { allowEmptyCatch: true }],
@@ -125,4 +123,32 @@ module.exports = {
       },
     ],
   },
+
+  // ts
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      extends: [
+        'eslint-config-airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:eslint-comments/recommended',
+        'prettier',
+        'prettier/react',
+        'prettier/@typescript-eslint',
+      ],
+      plugins: ['prettier', '@typescript-eslint', 'eslint-comments'],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        // @reference https://github.com/iamturns/create-exposed-app/blob/master/.eslintrc.js
+        '@typescript-eslint/no-use-before-define': [
+          ERROR,
+          { functions: false, classes: true, variables: true, typedefs: true },
+        ],
+        '@typescript-eslint/explicit-function-return-type': OFF,
+        'react/static-property-placement': OFF,
+        'react/jsx-props-no-spreading': OFF,
+        'react/sort-comp': OFF,
+      },
+    },
+  ],
 };
