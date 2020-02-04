@@ -83,7 +83,7 @@ module.exports = {
       },
     ],
     'react/no-array-index-key': [WARN],
-    'import/first': ['warn', 'DISABLE-absolute-first'],
+    'import/first': [WARN, 'absolute-first'],
 
     // common.js
     'global-require': ['off'],
